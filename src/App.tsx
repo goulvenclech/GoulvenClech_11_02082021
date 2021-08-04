@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Switch, Route }
 import IndexPage from './pages'
 import "tailwindcss/tailwind.css"
 
+/**
+ * Contain the router logic of our App !
+ */
 ReactDOM.render(
   <React.StrictMode>
       <Router>

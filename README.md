@@ -16,7 +16,7 @@ Diapo soutenance : ***(Work in progress)***
 
 ## Installation
 
-***(Work in progress)***
+Kasa est basé sur [React](https://reactjs.org/), [React Router](https://reactrouter.com/) et [TypeScript](https://www.typescriptlang.org/). J'utilise l'outil de développement Front End [Vite JS](https://vitejs.dev/) ainsi que le gestionnaire de packet [Yarn](https://yarnpkg.com/). Pour gérer les styles j'utilise [PostCSS](https://github.com/postcss/postcss) avec les plugins [TailwindCSS](https://tailwindcss.com/) ([JIT](https://tailwindcss.com/docs/just-in-time-mode)) et [autoprefixer](https://github.com/postcss/autoprefixer). Les tests utilisent [Jest](https://jestjs.io) et [TS-Jest](https://github.com/kulshekhar/ts-jest).
 
 1 - Installez [Yarn](https://yarnpkg.com/) sur votre système
 
@@ -26,7 +26,9 @@ Diapo soutenance : ***(Work in progress)***
 
 3 - Lancez le live serveur de ViteJS en tapant dans un terminal `yarn dev`
 
-4 - Pour obtenir une version production, utilisez dans un terminal `yarn build`
+4 - Lancez les tests en tapant dans un terminal `yarn test`. Les résultats sont consultables sur la page `/coverage/lcov-report/`.
+
+5 - Pour obtenir une version production, tapez dans un terminal `yarn build`
 
 ## Organisation du projet
 
