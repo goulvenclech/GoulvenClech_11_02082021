@@ -1,44 +1,61 @@
-import React from "react"
-import data from "../../../assets/data/data.json"
+import React, { useEffect } from "react"
+// import data from "../../../assets/data/data.json"
 
 /**
  * Display all the HousingCards in a section
  */
 export default function HousingSection() {
-    
-    const housings:Array<Housing> = importData()
-    const housingsCards:Array<JSX.Element> = createHousingsCards(housings)
+    /**
+     * This component render a "Loading" pure template. Then call the hook "useEffect" to
+     * fetch the back end. If the back end respond properly -> display all the housing cards
+     * if not -> display an error.
+     * With this approach, all our side effect are contained in "useEffect" hooks.
+     */
+    useEffect(() => {
+        const housingSection = document.querySelector(".housing-section") as HTMLElement
+        async function fetchData() {
+            try {
+              let response = await fetch("../../../assets/data/data.json");
+              if (response.ok) {
+                const data:Array<Housing> = await response.json()
+                const housings:string = createHousingsCards(data).join("")
+                housingSection.innerHTML = housings
+              } else {
+                housingSection.innerHTML = 
+                    `Désolé, nos serveurs font une sieste impromptue 
+                    (${response.status} : ${response.statusText}) 😥
+                    merci de re-essayer !`
+              }
+            } catch (err) {
+                housingSection.innerHTML = 
+                    `Désolé, une vilaine erreur inconnue (${err}) fait des 
+                    siennes 😥 merci de re-essayer !`
+            }
+            
+        }
+        fetchData()
+    })
+
     return (
-        <section className="m-4 p-4 rounded bg-gray-200
+        <section className="housing-section m-4 p-4 rounded bg-gray-200
             grid grid-cols-3 gap-4">
-            {housingsCards}
+            Loading... 
         </section>
     )
 }
-
-/**
- * Import the housings data from the JSON
- * ⚠️ TO DO ⚠️
- * Useless as long as we use a JSON, but when we'll insert the real backend
- * an error-handler will be needed.
- * @returns {Array<Housing>} 
- */
- function importData():Array<Housing> {
-    return data
-  }
 
 /**
  * Create a list of JSX elements representing each housing
  * @param {Array<Housing>} housings 
  * @returns {Array<JSX.Element>}
  */
- function createHousingsCards(housings:Array<Housing>):Array<JSX.Element> {
+ function createHousingsCards(housings:Array<Housing>):Array<String> {
     return housings.map((housing) =>
-        <article className="rounded-md bg-red-300 h-40" key={housing.id}>
+        `<article class="rounded-md bg-red-300 h-40" key={housing.id}>
             <h1>
-                {housing.title}
+                ${housing.title}
             </h1>
-        </article>
+        </article>`
     )
 }
 
@@ -47,13 +64,13 @@ export default function HousingSection() {
  * @interface Housing
  */
 export interface Housing {
-    id: string; 
-    title: string; 
-    cover: string; 
-    pictures: string[]; 
-    description: string; 
-    host: { name: string; picture: string; }; rating: string; 
-    location: string; 
-    equipments: string[]; 
-    tags: string[];
+    id: string,
+    title: string,
+    cover: string, 
+    pictures: string[], 
+    description: string, 
+    host: { name: string, picture: string, }, rating: string, 
+    location: string, 
+    equipments: string[], 
+    tags: string[],
 }
