@@ -1,5 +1,5 @@
 import IndexPage from "../pages"
-import HousingCards from "../components/index/housing-card"
+import HousingSection from "../components/index/housing-section"
 
 describe("Given I am on the index page", () => {
     test("Then the page should load", () => {
@@ -7,7 +7,7 @@ describe("Given I am on the index page", () => {
         expect(document.querySelector("#root")).toBeTruthy()
     })
     test("Then the housing section should be rendered", () => {
-        HousingCards()
+        HousingSection()
         expect(document.querySelector("section")).toBeTruthy()
     })
 })
