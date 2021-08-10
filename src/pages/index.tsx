@@ -4,7 +4,7 @@ import HousingSection from "../components/index/housing-section"
 /**
  * The homepage of Kasa !
  */
-export default function IndexPage() {
+export default function IndexPage():JSX.Element {
   return (
     <HousingSection />
   )

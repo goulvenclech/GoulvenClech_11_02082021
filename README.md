@@ -2,17 +2,18 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d3b121d4-6665-4f72-8961-92ce3f533732/deploy-status)](https://app.netlify.com/sites/epic-meitner-071d89/deploys)
 
-Kasa est une application de location d’appartements entre particuliers. Projet 11 de la formation OpenClassrooms "Développeur Front End".
+Kasa est une application de location d’appartements entre particuliers. Projet 11 de la formation OpenClassrooms "Développeur Front End". Pour ce projet, j'utilise TypeScript, React et React Router. En essayant de tendre vers une approche [fonctionnelle](https://en.wikipedia.org/wiki/Functional_programming) statiquement typée.
 
-Pour ce projet, j'utilise ViteJS, TypeScript, React, React Router et Tailwind. Je reste dans une approche tendant vers le paradigme [fonctionnel](https://en.wikipedia.org/wiki/Functional_programming) statiquement typé.
+Le typage statique avec TypeScript à plusieurs avantages : 
+-> Déléguer au compilateur le soin de vérifier qu'il n'y a pas d'erreurs de types, plutôt que compter sur sa vigilance ou sur des tests que l'on aurait écrit
+-> Documenter son code, en indiquant le type des variables, l'interface des objets et le type de retour d'une fonction... Ce qui le rend plus lisible et maintenable 
+-> L'intégration à l'IDE (dans mon cas VS Code) est très bien faite et rend l'écriture de code très agréable
 
-Je viens à peine de commencer le projet, mais j'espère pouvoir au travers de lui construire mon avis personnel sur React et TypeScript. Que je documenterais ici 😄
+Néanmoins, je ne suis pas pleinement convaincu par TypeScript : Premièrement il ne règle pas tout les problèmes de design de JavaScript, par exemple toutes les strutures de données restent mutables. Deuxièmement, ses "unions" sont en fait des variants non-discriminants, qui n'ont pas "conscience" du type qu'elles contiennent (contrairement à des variants discriminants ou types sommes) ce qui empêche de les utiliser pour faire des Switch logiques, nous privant donc d'un des outils les plus pratiques du typage statique.
 
 Adresse du répo : https://github.com/GoulvenC/GoulvenClech_11_02082021
 
 Démo live : https://oc-p11.goulven-clech.dev/
-
-Diapo soutenance : ***(Work in progress)***
 
 ## Installation
 

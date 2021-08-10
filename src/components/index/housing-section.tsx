@@ -4,7 +4,7 @@ import React, { useEffect } from "react"
 /**
  * Display all the HousingCards in a section
  */
-export default function HousingSection() {
+export default function HousingSection():JSX.Element {
     /**
      * This component render a "Loading" pure template. Then call the hook "useEffect" to
      * fetch the back end. If the back end respond properly -> display all the housing cards
@@ -24,12 +24,12 @@ export default function HousingSection() {
                 housingSection.innerHTML = 
                     `Désolé, nos serveurs font une sieste impromptue 
                     (${response.status} : ${response.statusText}) 😥
-                    merci de re-essayer !`
+                    merci de réessayer !`
               }
             } catch (err) {
                 housingSection.innerHTML = 
                     `Désolé, une vilaine erreur inconnue (${err}) fait des 
-                    siennes 😥 merci de re-essayer !`
+                    siennes 😥 merci de réessayer !`
             }
             
         }
