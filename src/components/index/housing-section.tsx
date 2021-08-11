@@ -37,8 +37,8 @@ export default function HousingSection():JSX.Element {
     })
 
     return (
-        <section className="housing-section m-4 p-4 rounded bg-gray-200
-            grid grid-cols-3 gap-4">
+        <section className="housing-section mx-4 xl:mx-auto my-4 p-4 rounded bg-gray-200
+          max-w-screen-xl grid grid-cols-3 gap-4">
             Loading... 
         </section>
     )
