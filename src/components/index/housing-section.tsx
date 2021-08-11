@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-// import data from "../../../assets/data/data.json"
+const backend:string = "./data.json"
 
 /**
  * Display all the HousingCards in a section
@@ -15,7 +15,7 @@ export default function HousingSection():JSX.Element {
         const housingSection = document.querySelector(".housing-section") as HTMLElement
         async function fetchData() {
             try {
-              let response = await fetch("../../../assets/data/data.json");
+              let response = await fetch(backend);
               if (response.ok) {
                 const data:Array<Housing> = await response.json()
                 const housings:string = createHousingsCards(data).join("")
