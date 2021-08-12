@@ -37,8 +37,8 @@ export default function HousingSection():JSX.Element {
     })
 
     return (
-        <section className="housing-section mx-4 xl:mx-auto my-4 p-4 rounded bg-gray-200
-          max-w-screen-xl grid grid-cols-3 gap-4">
+        <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100
+          grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
             Loading... 
         </section>
     )
@@ -51,7 +51,7 @@ export default function HousingSection():JSX.Element {
  */
  function createHousingsCards(housings:Array<Housing>):Array<String> {
     return housings.map((housing) =>
-        `<article class="rounded-md bg-red-300 h-40" key={housing.id}>
+        `<article class="rounded-xl p-4 bg-red-300 h-64" key={housing.id}>
             <h1>
                 ${housing.title}
             </h1>
