@@ -3,6 +3,7 @@ module.exports = {
   purge: [
     './src/*.tsx',
     './src/**/*.tsx',
+    './index.html'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
