@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kasa</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <!-- body is bg-black so if the windows is less than 100vh, the footer will
+  look like continuing to the bottom. #Root is bg-white so I don't have to
+  specify on every page components -->
+  <body class="bg-black">
+    <div id="root" class="bg-white"></div>
+    <!-- entry point of our SPA application -->
     <script type="module" src="/src/App.tsx"></script>
   </body>
 </html>

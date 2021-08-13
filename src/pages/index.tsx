@@ -7,7 +7,7 @@ import HeroIndex from "../components/index/hero-index"
  */
 export default function IndexPage():JSX.Element {
   return (
-    <main className="mx-4 xl:mx-auto max-w-screen-xl ">
+    <main className="px-4 xl:mx-auto max-w-screen-xl">
       <HeroIndex />
       <HousingSection />
     </main>

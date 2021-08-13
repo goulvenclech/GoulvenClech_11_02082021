@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route }
  from "react-router-dom"
 import "tailwindcss/tailwind.css"
-import IndexPage from './pages'
+import IndexPage from './pages/index'
+import AboutPage from './pages/about'
 import Header from './components/header'
 import Footer from './components/footer'
 
@@ -19,10 +20,10 @@ ReactDOM.render(
             <IndexPage />
           </Route>
           <Route path="/about">
-            <p>Test</p>
+            <AboutPage />
           </Route>
           <Route path="/test">
-            <p>Test2</p>
+            <AboutPage />
           </Route>
         </Switch>
         <Footer />
