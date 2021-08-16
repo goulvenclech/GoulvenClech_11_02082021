@@ -12,34 +12,45 @@ export default function HousingSection():JSX.Element {
      * With this approach, all our side effect are contained in "useEffect" hooks.
      */
     useEffect(() => {
-        const housingSection = document.querySelector(".housing-section") as HTMLElement
+        const loadingMessage = document.querySelector(".housing-section .loading-message") as HTMLElement
+        const errorMessage = document.querySelector(".housing-section .error-message") as HTMLElement
+        const housingWrapper = document.querySelector(".housing-section .housing-wrapper") as HTMLElement
+        /**
+         * wait for the backend to be fetch, then delete the "Loading..."
+         * then look if the back end send an error or the housing data
+         */ 
         async function fetchData() {
             try {
-              let response = await fetch(backend);
+              let response = await fetch(backend)
+              loadingMessage.remove()
               if (response.ok) {
+                // create a card for every housing and insert them in the section
                 const data:Array<Housing> = await response.json()
-                const housings:string = createHousingsCards(data).join("")
-                housingSection.innerHTML = housings
+                createHousingsCards(data).forEach(card => {
+                    housingWrapper.insertAdjacentHTML("beforeend", card)
+                })
               } else {
-                housingSection.innerHTML = 
-                    `Désolé, nos serveurs font une sieste impromptue 
+                errorMessage.innerHTML = `Désolé, nos serveurs font une sieste impromptue 
                     (${response.status} : ${response.statusText}) 😥
                     merci de réessayer !`
               }
             } catch (err) {
-                housingSection.innerHTML = 
-                    `Désolé, une vilaine erreur inconnue (${err}) fait des 
+                errorMessage.innerHTML = `Désolé, une vilaine erreur inconnue (${err}) fait des 
                     siennes 😥 merci de réessayer !`
             }
-            
         }
         fetchData()
     })
 
     return (
-        <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100
-          grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
-            Loading... 
+        <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100">
+            <span className="loading-message">
+                Loading...
+            </span>  
+            <span className="error-message">
+            </span>
+            <div className="housing-wrapper grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+            </div>
         </section>
     )
 }
@@ -49,7 +60,7 @@ export default function HousingSection():JSX.Element {
  * @param {Array<Housing>} housings 
  * @returns {Array<JSX.Element>}
  */
- function createHousingsCards(housings:Array<Housing>):Array<String> {
+ function createHousingsCards(housings:Array<Housing>):Array<string> {
     return housings.map((housing) =>
         `<article class="rounded-xl p-4 bg-red-300 h-64" key={housing.id}>
             <h1>
@@ -69,7 +80,8 @@ export interface Housing {
     cover: string, 
     pictures: string[], 
     description: string, 
-    host: { name: string, picture: string, }, rating: string, 
+    host: { name: string, picture: string, }, 
+    rating: string, 
     location: string, 
     equipments: string[], 
     tags: string[],

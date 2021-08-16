@@ -37,7 +37,7 @@ Kasa est basé sur [React](https://reactjs.org/), [React Router](https://reactro
 
 ## Organisation du projet
 
-Kase est une [single page application](https://en.wikipedia.org/wiki/Single-page_application), son point d'entrée est `index.html` qui appelle `App.tsx`, ce dernier contenant toute la logique Router (affiche la bonne page en fonction de l'URL) qui est gérée par [React Router](https://reactrouter.com/). En fonction de la page à afficher, le router va ensuite injecter dans le DOM le bon composant "Page" (`~/src/pages/*.tsx`) qui lui même va être un assemblement de composants custom (`~/src/components/*.tsx` & `~/src/components/*/*tsx`). Chaque composant embarque sa logique, son template HTML (`TSX`) et son style CSS (Tailwind). Le backend n'étant pas encore disponible, il a été simulé par un fichier JSON (`~/public/data.json`) et par des images placeholder (`~/assets/images
+Kase est une [single page application](https://en.wikipedia.org/wiki/Single-page_application), son point d'entrée est `index.html` qui appelle `App.tsx`, ce dernier contenant toute la logique Router (affiche la bonne page en fonction de l'URL) qui est gérée par [React Router](https://reactrouter.com/). En fonction de la page à afficher, le router va ensuite injecter dans le DOM le bon composant "Page" (`~/src/pages/*.tsx`) qui lui même va être un assemblement de composants custom (`~/src/components/*.tsx` & `~/src/components/*/*tsx`). Chaque composant embarque sa logique, son template HTML (`TSX`) et son style CSS (Tailwind). Le backend n'étant pas encore disponible, il a été simulé par un fichier JSON (`~/public/data.json`) et par des images placeholder (`~/assets/images`).
 
 ***Contenu du répo :***
 
@@ -74,6 +74,13 @@ Kase est une [single page application](https://en.wikipedia.org/wiki/Single-page
 `tsconfig.json` : fichier config de [TypeScript](https://www.typescriptlang.org/)
 
 `vite.config.ts` : fichier config de [Vite JS](https://vitejs.dev/)
+
+## Couverture des tests
+
+Les tests utilisent [Jest](https://jestjs.io) et [TS-Jest](https://github.com/kulshekhar/ts-jest). Etant donné que cette application est uniquement front end et que TypeScript sécurise déjà beaucoup le code, je n'ai pas cherché à obtenir une couverture de 100%. Néanmoins, je trouve intéréssant de quand même testé les principales user story et les composants les plus critiques.
+
+***{Work in progress}***
+
 
 ## License 
 
