@@ -65,7 +65,7 @@ Kase est une [single page application](https://en.wikipedia.org/wiki/Single-page
 
 `index.html` : point d'entrée du site
 
-`jest.config.js` : fichier config des tests [Jest](https://jestjs.io)
+`jest.config.js` & `babel.config.js` : fichiers config pour les tests [Jest](https://jestjs.io)
 
 `package.json` & `yarn.lock` : fichiers utilisés par le gestionnaire de paquet [Yarn](https://yarnpkg.com/)
 

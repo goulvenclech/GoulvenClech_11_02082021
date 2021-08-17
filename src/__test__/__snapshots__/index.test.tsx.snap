@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given I am on the index page Then the housing section should be rendered 1`] = `
+<section
+  className="housing-section my-4 p-8 rounded-3xl bg-gray-100"
+>
+  <span
+    className="loading-message"
+  >
+    Loading...
+  </span>
+  <span
+    className="error-message"
+  />
+  <div
+    className="housing-wrapper grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8"
+  />
+</section>
+`;
