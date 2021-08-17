@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {cleanup, fireEvent, render} from '@testing-library/react';
+import {render} from '@testing-library/react'
 import HousingSection from "../components/index/housing-section"
 
 describe("Given I am on the index page", () => {

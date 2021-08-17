@@ -1,72 +1,46 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import HousingCard from "./housing-card"
+// We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
 
 /**
- * Display all the HousingCards in a section
+ * A section wrapping all the housing cards
  */
 export default function HousingSection():JSX.Element {
+    const emptyData:Array<Housing> = []
+    const [housingData, setHousingData] = useState({fetching: true, data: emptyData})
+    const [error, setError] = useState({status: false, message: ""})
     /**
-     * This component render a "Loading" pure template. Then call the hook "useEffect" to
-     * fetch the back end. If the back end respond properly -> display all the housing cards
-     * if not -> display an error.
-     * With this approach, all our side effect are contained in "useEffect" hooks.
+     * After the component is rendered, fetch the back end, then change State with all 
+     * the data or with an error
      */
     useEffect(() => {
-        const loadingMessage = document.querySelector(".housing-section .loading-message") as HTMLElement
-        const errorMessage = document.querySelector(".housing-section .error-message") as HTMLElement
-        const housingWrapper = document.querySelector(".housing-section .housing-wrapper") as HTMLElement
-        /**
-         * wait for the backend to be fetch, then delete the "Loading..."
-         * then look if the back end send an error or the housing data
-         */ 
-        async function fetchData() {
+        (async () => {
             try {
               let response = await fetch(backend)
-              loadingMessage.remove()
               if (response.ok) {
-                // create a card for every housing and insert them in the section
-                const data:Array<Housing> = await response.json()
-                createHousingsCards(data).forEach(card => {
-                    housingWrapper.insertAdjacentHTML("beforeend", card)
-                })
+                setHousingData({fetching: false, data: await response.json()})
               } else {
-                errorMessage.innerHTML = `Désolé, nos serveurs font une sieste impromptue 
-                    (${response.status} : ${response.statusText}) 😥
-                    merci de réessayer !`
+                setError({status: true, message: `Erreur ${response.status} : ${response.statusText}`})
               }
             } catch (err) {
-                errorMessage.innerHTML = `Désolé, une vilaine erreur inconnue (${err}) fait des 
-                    siennes 😥 merci de réessayer !`
+                setError({status: true, message: `Erreur inconnue : ${err}`})
             }
-        }
-        fetchData()
-    })
-
+        })()
+    }, [setHousingData])
+    /**
+     * First, display a "loading" message. Then, if the error state change, display an error. 
+     * If the housingData state change, insert à <HousingCard> for every housing
+     */
     return (
         <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100">
-            <span className="loading-message">
-                Loading...
-            </span>  
-            <span className="error-message">
-            </span>
-            <div className="housing-wrapper grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+            { error.status ? <p>{error.message}</p> : "" }
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+                { housingData.fetching === true && error.status === false ? <p>Chargement...</p> : 
+                    housingData.data.map(housing => (
+                        <HousingCard key={housing.id} {...housing} />)) }
             </div>
         </section>
-    )
-}
-
-/**
- * Create a list of JSX elements representing each housing
- * @param {Array<Housing>} housings 
- * @returns {Array<JSX.Element>}
- */
- function createHousingsCards(housings:Array<Housing>):Array<string> {
-    return housings.map((housing) =>
-        `<article class="rounded-xl p-4 bg-red-300 h-64" key={housing.id}>
-            <h1>
-                ${housing.title}
-            </h1>
-        </article>`
     )
 }
 
