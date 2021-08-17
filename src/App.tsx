@@ -12,7 +12,6 @@ import Footer from './components/footer'
  * Contain the router logic of our App !
  */
 ReactDOM.render(
-  <React.StrictMode>
       <Router>
         <Header />
         <Switch>
@@ -27,7 +26,6 @@ ReactDOM.render(
           </Route>
         </Switch>
         <Footer />
-      </Router>
-  </React.StrictMode>,
+      </Router>,
   document.getElementById('root')
 )

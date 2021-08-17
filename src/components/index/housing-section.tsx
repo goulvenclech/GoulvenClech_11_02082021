@@ -27,7 +27,7 @@ export default function HousingSection():JSX.Element {
                 setError({status: true, message: `Erreur inconnue : ${err}`})
             }
         })()
-    }, [setHousingData])
+    }, [])
     /**
      * First, display a "loading" message. Then, if the error state change, display an error. 
      * If the housingData state change, insert à <HousingCard> for every housing
