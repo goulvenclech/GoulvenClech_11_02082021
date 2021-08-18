@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import imgUrl from "../../assets/images/logo_rose.svg"
 
 /**
@@ -14,10 +14,10 @@ export default function Header():JSX.Element {
                 </img>
             </Link>
             <Link className="text-primary text-2xl hover:underline" 
-              to="/about">
+              to="/">
                 Accueil
             </Link>
-            <Link className="text-primary text-2xl hover:underline" to="/test">
+            <Link className="text-primary text-2xl hover:underline" to="/about">
                 A Propos
             </Link>
         </header>

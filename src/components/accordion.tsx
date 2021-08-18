@@ -19,10 +19,10 @@ export default function Accordion(props:Props):JSX.Element {
         setHeight(isOpen === true ? "0px" : content.current.scrollHeight + "px")
     }
   }
-
+  
   return (
     <div className="my-4 bg-gray-200 rounded-lg">
-      <button className="text-left w-full bg-red-400 rounded-lg py-2 px-4 text-white text-lg" 
+      <button className="text-left w-full bg-primary rounded-lg py-2 px-4 text-white text-lg" 
         onClick={toggleAccordion}>
         <p className="">{props.title}</p>
       </button>
@@ -31,7 +31,7 @@ export default function Accordion(props:Props):JSX.Element {
         style={{ maxHeight: `${Height}` }}
         className="overflow-hidden duration-300"
       >
-        <p className="p-4 text-red-400 text-lg">
+        <p className="p-4 text-primary text-lg">
             {props.content}
         </p>
       </div>

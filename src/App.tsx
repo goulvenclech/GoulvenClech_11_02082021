@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route }
 import "tailwindcss/tailwind.css"
 import IndexPage from './pages/index'
 import AboutPage from './pages/about'
+import NotFoundPage from './pages/not-found'
 import Header from './components/header'
 import Footer from './components/footer'
 
@@ -21,8 +22,8 @@ ReactDOM.render(
           <Route path="/about">
             <AboutPage />
           </Route>
-          <Route path="/test">
-            <AboutPage />
+          <Route path="/*">
+            <NotFoundPage />
           </Route>
         </Switch>
         <Footer />

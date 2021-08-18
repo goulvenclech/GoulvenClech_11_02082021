@@ -34,7 +34,7 @@ export default function HousingSection():JSX.Element {
      */
     return (
         <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100">
-            { error.status ? <p>{error.message}</p> : "" }
+            { error.status ? <p>{error.message}</p>  : "" }
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
                 { housingData.fetching === true && error.status === false ? <p>Chargement...</p> : 
                     housingData.data.map(housing => (
