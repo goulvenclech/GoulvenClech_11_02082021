@@ -8,6 +8,7 @@ import AboutPage from './pages/about'
 import NotFoundPage from './pages/not-found'
 import Header from './components/header'
 import Footer from './components/footer'
+import Housing from './pages/housing'
 
 /**
  * Contain the router logic of our App !
@@ -21,6 +22,9 @@ ReactDOM.render(
           </Route>
           <Route path="/about">
             <AboutPage />
+          </Route>
+          <Route path="/housing-*">
+            <Housing />
           </Route>
           <Route path="/*">
             <NotFoundPage />

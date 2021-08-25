@@ -48,7 +48,7 @@ export default function HousingSection():JSX.Element {
  * Check if the housings objects are valid
  * @interface Housing
  */
-export interface Housing {
+interface Housing {
     id: string,
     title: string,
     cover: string, 

@@ -1,14 +1,18 @@
-import React, { useEffect } from "react"
+import React from "react"
+import { Link } from "react-router-dom"
+
 /**
  * Display all the HousingCards in a section
  */
 export default function HousingCard(housing:Props):JSX.Element {
     return (
-        <article className="rounded-xl p-4 bg-red-300 h-64" key={housing.id}>
-            <h1>
-                {housing.title}
-            </h1>
-        </article>
+        <Link to={"/housing-" + housing.id}>
+            <article className="rounded-xl p-4 bg-red-300 h-64" key={housing.id}>
+                <h1>
+                    {housing.title}
+                </h1>
+            </article>
+        </Link>
     )
 }
 
