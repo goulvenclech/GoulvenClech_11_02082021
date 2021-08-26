@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 import HousingCard from "./housing-card"
+import Error from "../error"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
+
 
 /**
  * A section wrapping all the housing cards
@@ -9,7 +11,7 @@ const backend:string = "./data.json"
 export default function HousingSection():JSX.Element {
     const emptyData:Array<Housing> = []
     const [housingData, setHousingData] = useState({fetching: true, data: emptyData})
-    const [error, setError] = useState({status: false, message: ""})
+    const [error, setError] = useState({status: false, number: "", message: ""})
     /**
      * After the component is rendered, fetch the back end, then change State with all 
      * the data or with an error
@@ -21,10 +23,10 @@ export default function HousingSection():JSX.Element {
               if (response.ok) {
                 setHousingData({fetching: false, data: await response.json()})
               } else {
-                setError({status: true, message: `Erreur ${response.status} : ${response.statusText}`})
+                setError({status: true, number: response.status.toString(), message: response.statusText})
               }
             } catch (err) {
-                setError({status: true, message: `Erreur inconnue : ${err}`})
+                setError({status: true, number: "inconnu", message: err})
             }
         })()
     }, [])
@@ -34,7 +36,7 @@ export default function HousingSection():JSX.Element {
      */
     return (
         <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100">
-            { error.status ? <p>{error.message}</p>  : "" }
+            { error.status ? <Error number={error.number} message={error.message} /> : "" }
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
                 { housingData.fetching === true && error.status === false ? <p>Chargement...</p> : 
                     housingData.data.map(housing => (

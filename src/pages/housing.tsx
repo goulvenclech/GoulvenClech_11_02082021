@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import MissingHousing from "../components/logement/missing-housing"
+import Error from "../components/error"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
 
@@ -10,7 +12,7 @@ export default function Housing():JSX.Element {
     host: { name: "", picture: "", }, rating: "", location: "", equipments: [], tags: [],
   };
   const [housingData, setHousingData] = useState({fetching: true, data: emptyData})
-  const [error, setError] = useState({status: false, message: ""})
+  const [error, setError] = useState({status: false, number: "", message: ""})
   const [missingHoussing, setMissingHousing] = useState(false)
   /**
    * Get the requested housing ID from the URL
@@ -33,17 +35,17 @@ export default function Housing():JSX.Element {
                 setMissingHousing(true)
               } 
             } else {
-              setError({status: true, message: `Erreur ${response.status} : ${response.statusText}`})
+              setError({status: true, number: response.status.toString(), message: response.statusText})
             }
           } catch (err) {
-              setError({status: true, message: `Erreur inconnue : ${err}`})
+              setError({status: true, number: "inconnu", message: err})
           }
       })()
     }, [])
   return (
     <main className="px-4 xl:mx-auto max-w-screen-xl">
-      { error.status ? <p>{error.message}</p>  : "" }
-      { missingHoussing ? <p>L'annonce {resquestedHousing} n'existe pas</p> : "" } 
+      { error.status ? <Error number={error.number} message={error.message} />  : "" }
+      { missingHoussing ? <MissingHousing /> : "" } 
       { housingData.fetching === true && error.status === false && missingHoussing === false ? 
         "Chargement en cours..."
       :
