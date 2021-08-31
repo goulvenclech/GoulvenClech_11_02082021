@@ -4,20 +4,20 @@
 
 Kasa is a C2C application for renting apartments. Project 11 of the OpenClassrooms "Front End Developer" course. For this project I'm using [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [React Router](https://reactrouter.com/ ) in a [statically typed](https://fr.wikipedia.org/wiki/Typage_statique) [functional](https://en.wikipedia.org/wiki/Functional_programming) paradigm.
 
-***Documentation :***
+**Documentation :**
 - [Home page](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki) ([project organisation]() | [detailed specifications]())
 - [technical specifications]() ([tech stack]() | [about TypeScript]() | [Class or function components]())
 - specifications, organisation and main components of [every app page]()
 
-***Useful links:***
+**Useful links:**
 - [Live demo 🌍](https://oc-p11.goulven-clech.dev) 
 - [Repository 📖](https://github.com/GoulvenC/GoulvenClech_11_02082021)
 - [Documentation 📑](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki)
 - [Figma mock-up 🖼️](https://www.figma.com/file/bAnXDNqRKCRRP8mY2gcb5p/UI-Design-Kasa-FR)
 
-## Instalation
+## Installation
 
-Kasa is based on [React](https://reactjs.org/), [React Router](https://reactrouter.com/) and [TypeScript](https://www.typescriptlang.org/). I use the Front End development tool [Vite JS](https://vitejs.dev/) as well as the package manager [Yarn](https://yarnpkg.com/). To manage styles I use [PostCSS](https://github.com/postcss/postcss) with plugins [TailwindCSS](https://tailwindcss.com/) ([JIT](https://tailwindcss.com/docs/just-in-time-mode)) and [autoprefixer](https://github.com/postcss/autoprefixer). Testing with [Jest](https://jestjs.io) and [TS-Jest](https://github.com/kulshekhar/ts-jest).
+Kasa is based on [React](https://reactjs.org/), [React Router](https://reactrouter.com/) and [TypeScript](https://www.typescriptlang.org/). I use the Front End development tool [Vite](https://vitejs.dev/) as well as the package manager [Yarn](https://yarnpkg.com/). To manage styles I use [PostCSS](https://github.com/postcss/postcss) with plugins [TailwindCSS](https://tailwindcss.com/) ([JIT](https://tailwindcss.com/docs/just-in-time-mode)) and [autoprefixer](https://github.com/postcss/autoprefixer). Testing with [Jest](https://jestjs.io) and [TS-Jest](https://github.com/kulshekhar/ts-jest).
 
 1 - Install [Yarn](https://yarnpkg.com/) on your system
 
@@ -25,9 +25,9 @@ Kasa is based on [React](https://reactjs.org/), [React Router](https://reactrout
 
 3 - Install the dependencies with `yarn install`
 
-3 - Start the ViteJS live server with `yarn dev`
+3 - Start [Vite](https://vitejs.dev/) live server with `yarn dev`
 
-4 - Run the tests with `yarn test`. The results can be viewed on the `/coverage/lcov-report/` page.
+4 - Run the tests with `yarn test`. Results can be viewed on the `/coverage/lcov-report/` page.
 
 5 - To obtain a production version do `yarn build`
 
