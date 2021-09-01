@@ -5,9 +5,10 @@
 Kasa is a C2C application for renting apartments. Project 11 of the OpenClassrooms "Front End Developer" course. For this project I'm using [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [React Router](https://reactrouter.com/ ) in a [statically typed](https://fr.wikipedia.org/wiki/Typage_statique) [functional](https://en.wikipedia.org/wiki/Functional_programming) paradigm.
 
 **Documentation :**
-- [Home page](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki) ([project organisation]() | [detailed specifications]())
-- [technical specifications]() ([tech stack]() | [about TypeScript]() | [Class or function components]())
-- specifications, organisation and main components of [every app page]()
+- [Home page](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki) ([project organisation](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki#project-organisation) | [repository description](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki#project-organisation) | [installation](https://github.com/GoulvenC/GoulvenClech_11_02082021#installation))
+- [technical specifications](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Tech-specifications) ([tech stack](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Tech-specifications#technical-stack) | [about TypeScript](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Tech-specifications#my-opinion-on-typescript) | [Class or function components](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Tech-specifications#class-or-functionnal-components))
+- Pages specifications : [Index](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-Index) | [About](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-About) | [Housing](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-Housing) | [NotFound](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-NotFound)
+- [API specifications](GoulvenC/GoulvenClech_11_02082021/wiki/API-specification) ([type description](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Tech-specifications#my-opinion-on-typescript) | [mock-up](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Tech-specifications#my-opinion-on-typescript))
 
 **Useful links:**
 - [Live demo 🌍](https://oc-p11.goulven-clech.dev) 
