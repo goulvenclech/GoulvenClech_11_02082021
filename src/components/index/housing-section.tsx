@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import HousingCard from "./housing-card"
 import Error from "../error"
+import { Housing } from "../../types"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
 
@@ -44,21 +45,4 @@ export default function HousingSection():JSX.Element {
             </div>
         </section>
     )
-}
-
-/**
- * Check if the housings objects are valid
- * @interface Housing
- */
-interface Housing {
-    id: string,
-    title: string,
-    cover: string, 
-    pictures: string[], 
-    description: string, 
-    host: { name: string, picture: string, }, 
-    rating: string, 
-    location: string, 
-    equipments: string[], 
-    tags: string[],
 }

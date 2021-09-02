@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react"
 import MissingHousing from "../components/logement/missing-housing"
 import Error from "../components/error"
+import { Housing } from "../types"
+import Carrousel from "../components/housing/carrousel"
+import HousingHeader from "../components/housing/housing-header"
+import Accordion from "../components/accordion"
+import HousingOwner from "../components/housing/housing-owner"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
 
 /**
  * Display a houssig offer
  */
-export default function Housing():JSX.Element {
+export default function HousingPage():JSX.Element {
   const emptyData:Housing = { id: "", title: "", cover: "", pictures: [], description: "", 
     host: { name: "", picture: "", }, rating: "", location: "", equipments: [], tags: [],
   };
@@ -49,13 +54,15 @@ export default function Housing():JSX.Element {
       { housingData.fetching === true && error.status === false && missingHoussing === false ? 
         "Chargement en cours..."
       :
-        <article>
-          <p>{housingData.data.id}</p>
-          <p>{housingData.data.title}</p>
-          <p>{housingData.data.location}</p>
-          <p>{housingData.data.description}</p>
-          <p>{housingData.data.rating}/5</p>
-        </article>
+        <section className="flex flex-wrap gap-4">
+          <Carrousel imgUrl={housingData.data.pictures[0]} />
+          <HousingHeader title={housingData.data.title} location={housingData.data.location} tags={housingData.data.tags} />
+          <HousingOwner name={housingData.data.host.name} avatar={housingData.data.host.picture} />
+          <div className="w-full grid grid-cols-2 gap-8">
+            <Accordion title="Description" content={housingData.data.description} />
+            <Accordion title="Description" content={housingData.data.equipments.join("\n")} />
+          </div>
+        </section>
       }
     </main>
   )
@@ -66,20 +73,5 @@ export default function Housing():JSX.Element {
  */
 type MaybeHousing = Housing | undefined
 
-/**
- * Check if the housings objects are valid
- * @interface Housing
- */
-interface Housing {
-  id: string,
-  title: string,
-  cover: string, 
-  pictures: string[], 
-  description: string, 
-  host: { name: string, picture: string, }, 
-  rating: string, 
-  location: string, 
-  equipments: string[], 
-  tags: string[],
-}
+
 
