@@ -6,11 +6,14 @@ import { Link } from "react-router-dom"
  */
 export default function HousingCard(housing:Props):JSX.Element {
     return (
-        <Link to={"/housing-" + housing.id}>
-            <article className="rounded-xl p-4 bg-red-300 h-64" key={housing.id}>
-                <h1>
+        <Link className="rounded-xl overflow-hidden" to={"/housing-" + housing.id}>
+            <article className="relative h-64 after:absolute after:inset-0 after:bg-gradient-to-b 
+                after:from-transparent after:via-transparent after:to-black" 
+                key={housing.id}>
+                <h1 className="absolute left-4 bottom-4 w-2/3 text-white font-semibold z-50">
                     {housing.title}
                 </h1>
+                <img className="w-full h-full object-fill" src={housing.pictures[0]}/>
             </article>
         </Link>
     )
