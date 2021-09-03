@@ -16,7 +16,8 @@ export default function HousingRating(props:Props):JSX.Element {
         </svg>,)
     }
     return (
-        <div className="flex items-center ml-auto">
+        <div className="row-start-3 col-start-1 md:row-start-auto md:col-start-auto
+             flex items-center justify-start md:justify-end">
             {stars}
         </div>
     )

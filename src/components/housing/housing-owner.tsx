@@ -8,7 +8,8 @@ export default function HousingOwner(props:Props):JSX.Element {
     const name = props.name.slice(0, endofname)
     const lastname = props.name.slice(endofname)
     return (
-        <div className="h-1/2 w-1/4 ml-auto text-primary text-right flex items-center">
+        <div className="ml-auto col-start-2 md:row-start-auto md:col-start-auto
+            text-primary text-right flex items-center">
             <h1 className="ml-auto block text-xl">
                 {name} <br /> {lastname}
             </h1>
