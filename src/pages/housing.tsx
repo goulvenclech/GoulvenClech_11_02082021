@@ -6,6 +6,7 @@ import Carrousel from "../components/housing/carrousel"
 import HousingHeader from "../components/housing/housing-header"
 import Accordion from "../components/accordion"
 import HousingOwner from "../components/housing/housing-owner"
+import HousingRating from "../components/housing/housing-rating"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
 
@@ -51,19 +52,22 @@ export default function HousingPage():JSX.Element {
     <main className="px-4 xl:mx-auto max-w-screen-xl">
       { error.status ? <Error number={error.number} message={error.message} />  : "" }
       { missingHoussing ? <MissingHousing /> : "" } 
-      { housingData.fetching === true && error.status === false && missingHoussing === false ? 
-        "Chargement en cours..."
-      :
+      { // while fetching and no error
+        housingData.fetching === true && error.status === false && missingHoussing === false ? 
+        "Chargement en cours..." : "" }
+      { // when fetching is done and no error
+        housingData.fetching === false && error.status === false && missingHoussing === false ?
         <section className="flex flex-wrap gap-4">
           <Carrousel imgUrl={housingData.data.pictures[0]} />
           <HousingHeader title={housingData.data.title} location={housingData.data.location} tags={housingData.data.tags} />
           <HousingOwner name={housingData.data.host.name} avatar={housingData.data.host.picture} />
+          <HousingRating rating={parseInt(housingData.data.rating)} />
           <div className="w-full grid grid-cols-2 gap-8">
             <Accordion title="Description" content={housingData.data.description} />
-            <Accordion title="Description" content={housingData.data.equipments.join("\n")} />
+            <Accordion title="Description" content={housingData.data.equipments} />
           </div>
-        </section>
-      }
+        </section> 
+        : ""}
     </main>
   )
 }

@@ -1,7 +1,7 @@
 import React from "react"
 
 /**
- * Title, location and tags of a housing
+ * Title and profile picture of the housing owner
  */
 export default function HousingOwner(props:Props):JSX.Element {
     const endofname = props.name.indexOf(" ")

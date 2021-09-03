@@ -14,7 +14,7 @@ export default function HousingCard(housing:Props):JSX.Element {
                     {housing.title}
                 </h1>
                 <img className="w-full h-full object-fill duration-500 group-hover:scale-105" 
-                    src={housing.pictures[0]}/>
+                    src={housing.cover}/>
             </article>
         </Link>
     )

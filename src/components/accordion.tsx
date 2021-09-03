@@ -34,11 +34,20 @@ export default function Accordion(props:Props):JSX.Element {
         <div
           ref={content}
           style={{ maxHeight: `${Height}` }}
-          className="overflow-hidden duration-300"
-        >
-          <p className="p-4 text-primary text-lg">
+          className="overflow-hidden duration-300 text-primary text-lg"
+        > 
+        {
+          // Content can be a string or a list of string
+          typeof props.content === "string" ?
+          <p className="px-4 py-2">
               {props.content}
           </p>
+          :
+          <ul className="px-4 py-2">
+            {props.content.map((equipement, index) => <li key={index}>{equipement}</li>)}
+          </ul>
+        }
+
         </div>
       </div>
     </article>
@@ -50,5 +59,5 @@ export default function Accordion(props:Props):JSX.Element {
  */
 interface Props {
     title: string,
-    content: string
+    content: string | Array<string>
 }
