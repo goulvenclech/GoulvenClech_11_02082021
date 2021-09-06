@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 /**
- * Display all the HousingCards in a section
+ * Link to a Housing offer, display the cover & title 
  */
 export default function HousingCard(housing:Props):JSX.Element {
     return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import MissingHousing from "../components/logement/missing-housing"
+import MissingHousing from "../components/housing/missing-housing"
 import Error from "../components/error"
 import { Housing } from "../types"
 import Carrousel from "../components/housing/carrousel"
@@ -11,7 +11,9 @@ import HousingRating from "../components/housing/housing-rating"
 const backend:string = "./data.json"
 
 /**
- * Display a houssig offer
+ * Display a requested houssig offer with all the informations about the place and the owner.
+ * If the back end failed, display an Error. If the offer didn't exist, display MissingHousing.
+ * See documentation => https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-Housing
  */
 export default function HousingPage():JSX.Element {
   const emptyData:Housing = { id: "", title: "", cover: "", pictures: [], description: "", 

@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 /**
- * inform that the requested housing didn't exist or have been deleted
+ * Inform that the requested housing didn't exist or have been deleted
  */
 export default function MissingHousing():JSX.Element {
 

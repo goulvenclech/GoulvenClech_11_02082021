@@ -4,6 +4,8 @@ import Accordion from "../components/accordion"
 
 /**
  * About Kasa, its values and its team !
+ * See documentation => https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-About
+ * 
  */
 export default function AboutPage():JSX.Element {
 

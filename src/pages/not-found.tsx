@@ -2,7 +2,8 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 /**
- * About Kasa, its values and its team !
+ * Informs the user that the requested page does not exist
+ * See documentation => https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-NotFound
  */
 export default function NotFoundPage():JSX.Element {
 

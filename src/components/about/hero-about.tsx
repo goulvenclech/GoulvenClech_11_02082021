@@ -2,7 +2,7 @@ import React from "react"
 import imgUrl from "../../../assets/images/cover-about.png"
 
 /**
- * The hero on the about page, just for decoration
+ * Hero of the About Page, displaying an image just for decoration.
  */
 export default function HeroAbout():JSX.Element {
     return (

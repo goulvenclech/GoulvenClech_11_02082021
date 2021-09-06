@@ -1,7 +1,7 @@
 import React from "react"
 
 /**
- * Display the housing pictures
+ * Hero of Housing page, display the housing pictures
  */
 export default function Carrousel(props:Props):JSX.Element {
     return (

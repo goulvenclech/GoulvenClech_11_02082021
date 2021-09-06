@@ -1,7 +1,7 @@
 import React from "react"
 
 /**
- * display the rating of an offer
+ * Display the rating of an offer
  */
 export default function HousingRating(props:Props):JSX.Element {
     const emptyStar = <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300" fill="#D1D5DB" viewBox="0 0 24 24" stroke="currentColor">

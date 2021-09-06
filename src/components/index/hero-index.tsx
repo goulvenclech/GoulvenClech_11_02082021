@@ -2,7 +2,7 @@ import React from "react"
 import imgUrl from "../../../assets/images/cover-home.png"
 
 /**
- * The hero on the index page, with the catch phrase !
+ * Hero of the Index Page, displaying an image and the company slogan
  */
 export default function HeroIndex():JSX.Element {
     return (
