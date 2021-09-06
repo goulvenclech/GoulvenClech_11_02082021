@@ -10,10 +10,4 @@ describe("Given I am on the 404 Not Found index page", () => {
         let tree = component.toJSON()
         expect(tree).toMatchSnapshot()
     })
-    test("Then the backend should be called", () => {
-    })
-    test("If the backend return an error, display it", () => {
-    })
-    test("If the backend return valid data, render housing cards", () => {
-    })
 })

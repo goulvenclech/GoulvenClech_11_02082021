@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import HousingCard from "./housing-card"
 import Error from "../error"
+import Loader from "../../components/loader"
 import { Housing } from "../../types"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
@@ -27,7 +28,7 @@ export default function HousingSection():JSX.Element {
                 setError({status: true, number: response.status.toString(), message: response.statusText})
               }
             } catch (err) {
-                setError({status: true, number: "inconnu", message: err})
+                setError({status: true, number: "inconnu", message: err.toString()})
             }
         })()
     }, [])
@@ -37,11 +38,14 @@ export default function HousingSection():JSX.Element {
      */
     return (
         <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100">
-            { error.status ? <Error number={error.number} message={error.message} /> : "" }
+            { error.status ? <Error number={error.number} message={error.message} />  : "" }
+            { // while fetching and no error
+                housingData.fetching === true && error.status === false ? <Loader /> : "" }
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
-                { housingData.fetching === true && error.status === false ? <p>Chargement...</p> : 
+                {  // when fetching is done and no error
+                    housingData.fetching === false && error.status === false ?
                     housingData.data.map(housing => (
-                        <HousingCard key={housing.id} {...housing} />)) }
+                        <HousingCard key={housing.id} {...housing} />)) : "" }
             </div>
         </section>
     )

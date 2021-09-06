@@ -11,10 +11,12 @@ describe("Given I am on the index page", () => {
         let tree = component.toJSON()
         expect(tree).toMatchSnapshot()
     }) 
-    test("Second test", () => {
-        const {queryByLabelText} = render(
-            <HousingSection />
-        )
-        console.log(queryByLabelText(/cosy/i))
-    })    
+    test("Then the backend should be called", () => {
+    })
+    test("If the backend return an error, display it", () => {
+    })
+    test("If the backend return valid data, render housing cards", () => {
+    })
+    test("If I click on an accordion, display its content", () => {
+    })
 })

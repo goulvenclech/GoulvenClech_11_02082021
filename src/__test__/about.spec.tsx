@@ -9,5 +9,7 @@ describe("Given I am on the about page", () => {
         )
         let tree = component.toJSON()
         expect(tree).toMatchSnapshot()
-    })    
+    })
+    test("If I click on an accordion, displey its content", () => {
+    })
 })

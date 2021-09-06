@@ -7,6 +7,7 @@ import HousingHeader from "../components/housing/housing-header"
 import Accordion from "../components/accordion"
 import HousingOwner from "../components/housing/housing-owner"
 import HousingRating from "../components/housing/housing-rating"
+import Loader from "../components/loader"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
 
@@ -46,7 +47,7 @@ export default function HousingPage():JSX.Element {
               setError({status: true, number: response.status.toString(), message: response.statusText})
             }
           } catch (err) {
-              setError({status: true, number: "inconnu", message: err})
+              setError({status: true, number: "inconnu", message: err.toString()})
           }
       })()
     }, [])
@@ -56,7 +57,7 @@ export default function HousingPage():JSX.Element {
       { missingHoussing ? <MissingHousing /> : "" } 
       { // while fetching and no error
         housingData.fetching === true && error.status === false && missingHoussing === false ? 
-        "Chargement en cours..." : "" }
+        <Loader /> : "" }
       { // when fetching is done and no error
         housingData.fetching === false && error.status === false && missingHoussing === false ?
         <section>
