@@ -6,7 +6,7 @@ import React, { useState } from "react"
  */
 export default function Carrousel(props:Props):JSX.Element {
     const [slide, setSlide] = useState(0);
-    const slides = props.pictures.length
+    const slides:number = props.pictures.length
     return (
         <section className="relative">
             <div className="flex flex-nowrap group text-center hero-index h-96 rounded-3xl w-full overflow-hidden">
@@ -16,6 +16,7 @@ export default function Carrousel(props:Props):JSX.Element {
                     </img>)
                 })}
             </div>
+            { slides === 1 ? "" : <>
             <button className="text-xl absolute left-4 top-40" title="Photo précédente"
                     // Every day I wake up, then I remember that the most popular programming language in the world 
                     // can't do a simple modulo, and I am sad for the day 😔
@@ -29,7 +30,7 @@ export default function Carrousel(props:Props):JSX.Element {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="#FFF">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-            </button>
+            </button></>}
         </section>
     )
 }

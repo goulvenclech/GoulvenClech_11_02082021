@@ -13,7 +13,7 @@ export default function HousingCard(housing:Props):JSX.Element {
                 <h1 className="absolute left-4 bottom-4 w-2/3 text-white font-semibold z-50">
                     {housing.title}
                 </h1>
-                <img className="w-full h-full object-fill duration-500 group-hover:scale-105" 
+                <img className="w-full h-full object-cover duration-500 group-hover:scale-105" 
                     src={housing.cover}/>
             </article>
         </Link>
