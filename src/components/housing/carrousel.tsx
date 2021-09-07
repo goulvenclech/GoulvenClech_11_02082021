@@ -21,13 +21,13 @@ export default function Carrousel(props:Props):JSX.Element {
                     // Every day I wake up, then I remember that the most popular programming language in the world 
                     // can't do a simple modulo, and I am sad for the day 😔
                     onClick={() => {setSlide(((slide-1 % slides) + slides) % slides )}}> 
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="#FFF">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="#FFF">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
             <button className="text-xl absolute right-4 top-40"  title="Photo suivante"
                     onClick={() => {setSlide(((slide+1 % slides ) + slides ) % slides )}}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="#FFF">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="#FFF">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
             </button></>}

@@ -37,7 +37,7 @@ export default function HousingSection():JSX.Element {
      * If the housingData state change, insert à <HousingCard> for every housing
      */
     return (
-        <section className="housing-section my-4 p-8 rounded-3xl bg-gray-100">
+        <section className="housing-section my-4 md:p-8 rounded-3xl md:bg-gray-100">
             { error.status ? <Error number={error.number} message={error.message} />  : "" }
             { // while fetching and no error
                 housingData.fetching === true && error.status === false ? <Loader /> : "" }

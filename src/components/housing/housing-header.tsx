@@ -6,7 +6,7 @@ import React from "react"
 export default function HousingHeader(props:Props):JSX.Element {
     return (
         <div className="my-2 row-span-2 col-span-2 text-primary">
-            <h1 className="text-4xl">
+            <h1 className="text-3xl font-semibold">
                 {props.title}
             </h1>
             <p className="text-xl leading-relaxed">

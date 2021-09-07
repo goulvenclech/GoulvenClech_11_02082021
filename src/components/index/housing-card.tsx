@@ -10,7 +10,7 @@ export default function HousingCard(housing:Props):JSX.Element {
             <article className="group relative h-64 after:absolute after:inset-0 after:bg-gradient-to-b 
                 after:from-transparent after:via-transparent after:to-black" 
                 key={housing.id}>
-                <h1 className="absolute left-4 bottom-4 w-2/3 text-white font-semibold z-50">
+                <h1 className="absolute left-4 bottom-4 w-2/3 text-sm text-white font-semibold z-50">
                     {housing.title}
                 </h1>
                 <img className="w-full h-full object-cover duration-500 group-hover:scale-105" 

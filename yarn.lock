@@ -989,6 +989,11 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@fontsource/montserrat@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.1.tgz#64a33ffdb77bbc63484c0321710bed272cc5b16f"
+  integrity sha512-xdMkzsnFlzDt5Vj9+AWuUp4Vd9F3hYN2I0GTZZYscWN/bQ20wVOGtdWLO8Okfv7SZ9t/z39/EayAAt+f/8tAvw==
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz"

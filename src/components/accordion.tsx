@@ -23,7 +23,7 @@ export default function Accordion(props:Props):JSX.Element {
   return (
     <article>
       <div className="my-4 bg-gray-200 rounded-lg">
-        <button className="text-left w-full bg-primary rounded-lg py-2 px-4 text-white text-lg flex" 
+        <button className="text-left w-full bg-primary rounded-lg py-2 px-4 text-white text-md flex" 
           onClick={toggleAccordion}>
           <p className="mr-auto">{props.title}</p>
           <svg xmlns="http://www.w3.org/2000/svg" className={isOpen ? "h-6 w-6 duration-300 -rotate-180" : "h-6 w-6 duration-300"}
@@ -34,7 +34,7 @@ export default function Accordion(props:Props):JSX.Element {
         <div
           ref={content}
           style={{ maxHeight: `${Height}` }}
-          className="overflow-hidden duration-300 text-primary text-lg"
+          className="overflow-hidden duration-300 text-primary text-md"
         > 
         {
           // Content can be a string or a list of string

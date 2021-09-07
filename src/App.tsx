@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route }
  from "react-router-dom"
+import "@fontsource/montserrat"
 import "tailwindcss/tailwind.css"
 import IndexPage from './pages/index'
 import AboutPage from './pages/about'

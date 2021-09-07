@@ -10,8 +10,8 @@ export default function HeroIndex():JSX.Element {
             <img className="opacity-70 object-cover h-full w-full"
               src={imgUrl}>
             </img>
-            <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl text-white w-full">
-                Chez vous, partout et ailleurs
+            <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white w-full">
+                Chez vous, partout et&nbsp;ailleurs
             </h1>
         </section>
     )

@@ -13,7 +13,7 @@ export default function NotFoundPage():JSX.Element {
         <h1 className="text-15xl leading-tight font-black">
           404 
         </h1>
-        <p className="text-3xl ">
+        <p className="text-2xl ">
           Oups! La page que vous demandez n'existe pas.
         </p>
         <Link className="block my-28 underline"
