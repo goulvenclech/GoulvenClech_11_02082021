@@ -47,7 +47,6 @@ export default function Accordion(props:Props):JSX.Element {
             {props.content.map((equipement, index) => <li key={index}>{equipement}</li>)}
           </ul>
         }
-
         </div>
       </div>
     </article>

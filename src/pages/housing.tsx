@@ -61,7 +61,7 @@ export default function HousingPage():JSX.Element {
       { // when fetching is done and no error
         housingData.fetching === false && error.status === false && missingHoussing === false ?
         <section>
-          <Carrousel imgUrl={housingData.data.pictures[0]} />
+          <Carrousel pictures={housingData.data.pictures} />
           <div className="grid grid-rows-2 md:grid-cols-3 grid-cols-2  mt-4">
             <HousingHeader title={housingData.data.title} location={housingData.data.location} tags={housingData.data.tags} />
             <HousingOwner name={housingData.data.host.name} avatar={housingData.data.host.picture} />
@@ -69,7 +69,7 @@ export default function HousingPage():JSX.Element {
           </div>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 md:gap-8">
             <Accordion title="Description" content={housingData.data.description} />
-            <Accordion title="Description" content={housingData.data.equipments} />
+            <Accordion title="Équipement" content={housingData.data.equipments} />
           </div>
         </section> 
         : ""}

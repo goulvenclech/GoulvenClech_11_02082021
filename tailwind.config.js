@@ -8,6 +8,14 @@ module.exports = {
   darkMode: false, // or "media" or "class"
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "translateX(50%)" },
+        }
+      },
+      animation: {
+        wiggle: "wiggle 200ms ease-in-out"
+      },
       colors: {
         primary: "#FF6060",
       },
