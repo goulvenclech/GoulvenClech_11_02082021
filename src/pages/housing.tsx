@@ -21,7 +21,7 @@ host: { name: "", picture: "", }, rating: "", location: "", equipments: Array<st
  */
  export default class HousingPage extends React.Component<any, any> {
   constructor(props:any) {
-      super(props);
+      super(props)
       this.state = {
           housingData: {fetching: true, data: emptyData},
           error: {status: false, number: "", message: ""},
