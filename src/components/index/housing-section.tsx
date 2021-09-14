@@ -1,5 +1,5 @@
 import React from "react"
-import HousingCard from "./housing-card"
+import HousingCard, { Props } from "./housing-card"
 import Error from "../error"
 import Loader from "../../components/loader"
 import { Housing } from "../../types"
@@ -48,7 +48,7 @@ export default class HousingSection extends React.Component<null, any> {
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
                 {  // when fetching is done and no error
                     this.state.housingData.fetching === false && this.state.error.status === false ?
-                    this.state.housingData.data.map(housing => (
+                    this.state.housingData.data.map((housing: JSX.IntrinsicAttributes & Props) => (
                         <HousingCard key={housing.id} {...housing} />)) : "" }
             </div>
         </section>
