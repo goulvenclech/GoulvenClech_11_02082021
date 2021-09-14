@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import MissingHousing from "../components/housing/missing-housing"
 import Error from "../components/error"
 import { Housing } from "../types"
@@ -10,28 +10,34 @@ import HousingRating from "../components/housing/housing-rating"
 import Loader from "../components/loader"
 // We don't have the backend yet, so I used a mocked JSON
 const backend:string = "./data.json"
+const emptyData:Housing = { id: "", title: "", cover: "", pictures: Array<string>(), description: "", 
+host: { name: "", picture: "", }, rating: "", location: "", equipments: Array<string>(), tags: Array<string>(),
+}
 
 /**
  * Display a requested houssig offer with all the informations about the place and the owner.
  * If the back end failed, display an Error. If the offer didn't exist, display MissingHousing.
  * See documentation => https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki/Page-Housing
  */
-export default function HousingPage():JSX.Element {
-  const emptyData:Housing = { id: "", title: "", cover: "", pictures: [], description: "", 
-    host: { name: "", picture: "", }, rating: "", location: "", equipments: [], tags: [],
-  };
-  const [housingData, setHousingData] = useState({fetching: true, data: emptyData})
-  const [error, setError] = useState({status: false, number: "", message: ""})
-  const [missingHoussing, setMissingHousing] = useState(false)
-  /**
-   * Get the requested housing ID from the URL
-   */
-   const resquestedHousing:string = window.location.pathname.slice(9)
+ export default class HousingPage extends React.Component<any, any> {
+  constructor(props:any) {
+      super(props);
+      this.state = {
+          housingData: {fetching: true, data: emptyData},
+          error: {status: false, number: "", message: ""},
+          missingHousing: false
+      }
+  }
+
   /**
    * After the component is rendered, fetch the back end, then change State with all 
    * the data or with an error
    */
-   useEffect(() => {
+  componentDidMount() {
+      /**
+       * Get the requested housing ID from the URL
+       */
+      const resquestedHousing:string = window.location.pathname.slice(9);
       (async () => {
           try {
             let response = await fetch(backend)
@@ -39,42 +45,43 @@ export default function HousingPage():JSX.Element {
               const allHousings:Array<Housing> = await response.json()
               const housing:MaybeHousing = allHousings.find(housing => housing.id === resquestedHousing )
               if (housing !== undefined){
-                setHousingData({fetching: false, data:housing })
+                this.setState({housingData: {fetching: false, data:housing }})
               } else {
-                setMissingHousing(true)
+                this.setState({missingHousing: true})
               } 
             } else {
-              setError({status: true, number: response.status.toString(), message: response.statusText})
+              this.setState({error: {status: true, number: response.status.toString(), message: response.statusText}})
             }
           } catch (err) {
-              setError({status: true, number: "inconnu", message: err.toString()})
+            this.setState({error: {status: true, number: "inconnu", message: err.toString()}})
           }
       })()
-    }, [])
-  return (
-    <main className="px-4 xl:mx-auto max-w-screen-xl">
-      { error.status ? <Error number={error.number} message={error.message} />  : "" }
-      { missingHoussing ? <MissingHousing /> : "" } 
-      { // while fetching and no error
-        housingData.fetching === true && error.status === false && missingHoussing === false ? 
-        <Loader /> : "" }
-      { // when fetching is done and no error
-        housingData.fetching === false && error.status === false && missingHoussing === false ?
-        <section>
-          <Carrousel pictures={housingData.data.pictures} />
-          <div className="grid grid-rows-2 md:grid-cols-3 grid-cols-2  mt-4">
-            <HousingHeader title={housingData.data.title} location={housingData.data.location} tags={housingData.data.tags} />
-            <HousingOwner name={housingData.data.host.name} avatar={housingData.data.host.picture} />
-            <HousingRating rating={parseInt(housingData.data.rating)} />
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 md:gap-8">
-            <Accordion title="Description" content={housingData.data.description} />
-            <Accordion title="Équipement" content={housingData.data.equipments} />
-          </div>
-        </section> 
-        : ""}
+  }
+  render() {
+    return<main className="px-4 xl:mx-auto max-w-screen-xl">
+        {console.log(this.state.housingData.fetching + " " + this.state.error.status + " " + this.state.missingHousing)}
+        { this.state.error.status ? <Error number={this.state.error.number} message={this.state.error.message} />  : "" }
+        { this.state.missingHousing ? <MissingHousing /> : "" } 
+        { // while fetching and no error
+          this.state.housingData.fetching === true && this.state.error.status === false && this.state.missingHousing === false ? 
+          <Loader /> : "" }
+        { // when fetching is done and no error
+          this.state.housingData.fetching === false && this.state.error.status === false && this.state.missingHousing === false ?
+          <section>
+            <Carrousel pictures={this.state.housingData.data.pictures} />
+            <div className="grid grid-rows-2 md:grid-cols-3 grid-cols-2  mt-4">
+              <HousingHeader title={this.state.housingData.data.title} location={this.state.housingData.data.location} tags={this.state.housingData.data.tags} />
+              <HousingOwner name={this.state.housingData.data.host.name} avatar={this.state.housingData.data.host.picture} />
+              <HousingRating rating={parseInt(this.state.housingData.data.rating)} />
+            </div>
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 md:gap-8">
+              <Accordion title="Description" content={this.state.housingData.data.description} />
+              <Accordion title="Équipement" content={this.state.housingData.data.equipments} />
+            </div>
+          </section> 
+          : ""}
     </main>
-  )
+  }
 }
 
 /**
