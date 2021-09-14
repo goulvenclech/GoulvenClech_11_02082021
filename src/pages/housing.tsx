@@ -22,7 +22,7 @@ export default function HousingPage():JSX.Element {
   };
   const [housingData, setHousingData] = useState({fetching: true, data: emptyData})
   const [error, setError] = useState({status: false, number: "", message: ""})
-  const [missingHoussing, setMissingHousing] = useState(false)
+  const [missingHousing, setMissingHousing] = useState(false)
   /**
    * Get the requested housing ID from the URL
    */
@@ -54,12 +54,12 @@ export default function HousingPage():JSX.Element {
   return (
     <main className="px-4 xl:mx-auto max-w-screen-xl">
       { error.status ? <Error number={error.number} message={error.message} />  : "" }
-      { missingHoussing ? <MissingHousing /> : "" } 
+      { missingHousing ? <MissingHousing /> : "" } 
       { // while fetching and no error
-        housingData.fetching === true && error.status === false && missingHoussing === false ? 
+        housingData.fetching === true && error.status === false && missingHousing === false ? 
         <Loader /> : "" }
       { // when fetching is done and no error
-        housingData.fetching === false && error.status === false && missingHoussing === false ?
+        housingData.fetching === false && error.status === false && missingHousing === false ?
         <section>
           <Carrousel pictures={housingData.data.pictures} />
           <div className="grid grid-rows-2 md:grid-cols-3 grid-cols-2  mt-4">
