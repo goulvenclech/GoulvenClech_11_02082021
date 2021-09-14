@@ -4,7 +4,7 @@
 
 Kasa is a C2C application for renting apartments. Project 11 of the OpenClassrooms "Front End Developer" course. For this project I'm using [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [React Router](https://reactrouter.com/ ) in a [statically typed](https://fr.wikipedia.org/wiki/Typage_statique) [functional](https://en.wikipedia.org/wiki/Functional_programming) paradigm.
 
-> ⚠️ The project was requested in class components, but I disagree with this choice. In order to compare, the main branch is a function component and a separate branch translates the main components into classes. More details on the [dedicated pull request](https://github.com/GoulvenC/GoulvenClech_11_02082021/pull/1).
+> ⚠️ The project was requested in class components, but I disagree with this choice. To compare, main branch is in functions and a separate branch translates the main components into classes. More details on the [dedicated pull request](https://github.com/GoulvenC/GoulvenClech_11_02082021/pull/1) ! 
 
 **Documentation :**
 - [Home page](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki) ([project organisation](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki#project-organisation) | [repository description](https://github.com/GoulvenC/GoulvenClech_11_02082021/wiki#project-organisation) | [installation](https://github.com/GoulvenC/GoulvenClech_11_02082021#installation))
