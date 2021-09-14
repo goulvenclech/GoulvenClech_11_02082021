@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 /**
  * Just checking if the props are valids
  */
@@ -13,8 +13,8 @@ import React, { useState } from "react"
     constructor(props:Props) {
         super(props)
         this.state = {
-                slide: 0,
-                slides: props.pictures.length
+            slide: 0,
+            slides: props.pictures.length
         }
     }
     render() {
