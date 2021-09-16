@@ -3,14 +3,14 @@
  * @interface Housing
  */
  export interface Housing {
-    id: string,
-    title: string,
-    cover: string, 
-    pictures: string[], 
-    description: string, 
-    host: { name: string, picture: string, }, 
-    rating: string, 
-    location: string, 
-    equipments: string[], 
-    tags: string[],
-  }
+  id: string, // 8 hexadecimal digits
+  title: string, 
+  cover: string, 
+  pictures: string[], 
+  description: string, 
+  host: { name: string, picture: string, }, 
+  rating: string, // a number on a 5 scale 
+  location: string, 
+  equipments: string[], 
+  tags: string[],
+}
